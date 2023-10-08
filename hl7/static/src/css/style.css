@@ -1,0 +1,84 @@
+.header {
+    background-color: #adb5bd;
+}
+.custom-button {
+    background-color: #005792;
+}
+
+.bg-hl7-primary_blue {
+    background: #005792;
+}
+
+table.bg-hl7-primary_blue td, table.bg-hl7-primary-blue th {
+    background: #005792;
+}
+
+table.text-hl7-white td, table.bg-hl7-primary-blue th {
+    color: white;
+}
+
+.custom-center {
+    text-align: center;
+}
+.submitted-text {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+.custom-text-color {
+    color: #005792;
+}
+.bg-hl7-primary-grey {
+    background-color: #adb5bd;
+}
+
+.bg-hl7-secondary  {
+    background-color: #005792;
+}
+
+.copy-button-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+.text-input {
+    max-width: 500px
+}
+
+.hidden {
+    display: none;
+}
+
+.hidden-text {
+    display: none;
+}
+
+.navbar-collapse {
+      text-align: center;
+    }
+.navbar-toggler {
+      border-color: white;
+}
+
+@media (max-width: 991px) {
+  .dropdown-menu {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 20px;
+  }
+}
+
+.links {
+    text-decoration:none;
+    color:black;
+}
+
+.text-white {
+    color: white;
+}
+
+.body-margin  {
+    margin-bottom: 100px;
+}

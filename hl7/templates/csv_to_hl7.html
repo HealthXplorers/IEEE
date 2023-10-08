@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div
+  class="custom-center"
+>
+  <h1
+    class="custom-text-color"
+  >
+    CSV file upload
+  </h1>
+  {% if messages %}
+  <ul
+    class="messages"
+  >
+    {% for message in messages %}
+    <li>
+      {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  <div
+    class="container"
+  >
+    <div
+      class="justify-content-center d-flex"
+    >
+      <div
+        class="col-md-6"
+      >
+        <form
+          class="text-center"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          {% csrf_token %}
+          <label
+            class="h5"
+            for="csv_file"
+          >
+            Select a CSV file:
+          </label>
+          <div
+            class="input-group mb-3 justify-content-center d-flex"
+          >
+            <input
+              type="file"
+              class="btn btn-outline-secondary"
+              id="csv_file"
+              name="csv_file"
+              accept=".csv"
+            >
+          </div>
+          <button
+            class="btn custom-button text-white"
+            type="submit"
+          >
+            Upload
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="text-center"
+>
+  {{ error_message }}
+</div>
+
+<div
+  class="custom-center m-3"
+>
+  <h4>
+    Required format:
+  </h4>
+</div>
+<div
+  class="justify-content-center d-flex m-2"
+>
+  <button
+    class="btn custom-button btn-sm text-white"
+    id="toggleButton"
+  >
+    Show format
+  </button>
+</div>
+
+<div
+  class="container w-25 hidden"
+  id="tableContainer"
+>
+  <div
+    class="container mt-3"
+  >
+    <div
+      class="input-group"
+    >
+      <table
+        class="table table-sm justify-content-center d-flex"
+        id="csv-format"
+      >
+        <tr>
+          <td>
+            MSH;2;^~\&;
+          </td>
+        </tr>
+        <tr>
+          <td>
+            PID;24.1.1;Y;
+          </td>
+        </tr>
+        <tr>
+          <td>
+            ENV;1;P03;
+          </td>
+        </tr>
+
+
+      </table>
+    </div>
+  </div>
+
+
+</div>
+{% if hl7_message %}
+<div
+  class="container mt-3"
+>
+  <div
+    class="input-group"
+  >
+    <textarea class="form-control"
+              id="hl7-message"
+              rows="4"
+    >{{ hl7_message }}</textarea>
+    <a
+      href="#"
+      id="copy-button"
+    >
+      <img
+        class="copy-button-icon m-2"
+        src="{% static 'copy-solid.png' %}"
+        alt="Copy"
+      >
+    </a>
+  </div>
+</div>
+
+{% endif %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById("copy-button").addEventListener("click", function() {
+      var hl7MessageTextArea = document.getElementById("hl7-message");
+      hl7MessageTextArea.select();
+      document.execCommand("copy");
+  });
+    });
+
+  const toggleButton = document.getElementById('toggleButton');
+  const tableContainer = document.getElementById('tableContainer');
+
+  toggleButton.addEventListener('click', function() {
+    tableContainer.classList.toggle('hidden');
+  });
+
+
+
+
+</script>
+
+{% endblock content %}
