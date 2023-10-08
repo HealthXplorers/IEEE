@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div
+  class="custom-center"
+>
+  <h1
+    class="custom-text-color"
+  >
+    HL7 to Excel
+  </h1>
+  <h3>
+    Paste HL7 message here
+  </h3>
+  <form
+    method="post"
+    action="{% url 'hl7-to-excel' %}"
+  >
+    {% csrf_token %}
+
+    <div
+      class="d-flex justify-content-center"
+    >
+      <textarea
+        class="form-control text-input mb-3"
+        id="text_input"
+        name="text_input"
+        rows="4"
+        cols="50"
+      ></textarea>
+    </div>
+    <div
+    >
+      {{ error_message }}
+    </div>
+    <input
+      class="btn custom-button text-white"
+      type="submit"
+      value="Convert"
+    >
+  </form>
+  {% if excel_data %}
+  <div class="mt-3">
+    <a
+      href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{{ excel_data }}"
+      class="btn custom-button"
+      download="converted_data.xlsx"
+    >
+      Download Excel File
+    </a>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock content %}

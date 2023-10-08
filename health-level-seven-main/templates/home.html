@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div
+  class="text-center pt-5"
+>
+  <h1>
+    Free Open source HL7 converter
+  </h1>
+  <h2>
+    Transforming Data with Precision
+  </h2>
+  <p>
+    All data converted remains locally on your machine and will not saved on our servers
+  </p>
+</div>
+<div
+  class="text-center pt-5"
+>
+  <button
+    onclick="window.location.href='{% url 'csv-to-hl7' %}';"
+    class="btn custom-button m-2 text-white"
+  >
+    CSV to HL7
+  </button>
+  <button
+    onclick="window.location.href='{% url 'text-to-hl7' %}';"
+    class="btn custom-button m-2 text-white"
+  >
+    Text to HL7
+  </button>
+  <button
+    onclick="window.location.href='{% url 'excel-to-hl7' %}';"
+    class="btn custom-button m-2 text-white"
+  >
+    Excel to HL7
+  </button>
+</div>
+<div
+  class="text-center pt-2"
+>
+  <button
+    onclick="window.location.href='{% url 'hl7-to-csv' %}';"
+    class="btn custom-button m-2 text-white"
+  >
+    HL7 to CSV
+  </button>
+  <button
+    onclick="window.location.href='{% url 'hl7-to-excel' %}';"
+    class="btn custom-button m-2 text-white"
+  >
+    HL7 to Excel
+  </button>
+</div>
+
+{% endblock content %}

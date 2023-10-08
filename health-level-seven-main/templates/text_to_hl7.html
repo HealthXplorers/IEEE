@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div
+  class="custom-center"
+>
+  <h1
+    class="custom-text-color"
+  >
+    Text Input
+  </h1>
+  <h3>
+    Paste text here
+  </h3>
+  <form
+    method="post"
+    action="{% url 'text-to-hl7' %}"
+  >
+    {% csrf_token %}
+    <div
+      class="d-flex justify-content-center"
+    >
+      <textarea
+        class="form-control text-input mb-3"
+        id="text_input"
+        name="text_input"
+        rows="4"
+        cols="50"
+      ></textarea>
+    </div>
+    <div>
+      {{ error_message }}
+    </div>
+    <input
+      class="btn custom-button text-white"
+      type="submit"
+      value="Convert"
+    >
+  </form>
+  {% if hl7_message %}
+  <div
+    class="container mt-3"
+  >
+    <div
+      class="input-group"
+    >
+      <textarea
+        class="form-control"
+        id="hl7-message"
+        rows="4"
+      >{{ hl7_message }}</textarea>
+      <a
+        href="#"
+        id="copy-button"
+      >
+        <img class="copy-button-icon m-2"
+             src="{% static 'copy-solid.png' %}"
+             alt="Copy"
+        >
+      </a>
+    </div>
+  </div>
+
+  {% endif %}
+
+</div>
+<div
+  class="custom-center m-3"
+>
+  <h4>
+    Required format:
+  </h4>
+</div>
+<div
+  class="justify-content-center d-flex mt-3"
+>
+  <button
+    class="btn custom-button btn-sm text-white"
+    id="toggleButton"
+  >
+    Show format
+  </button>
+</div>
+<div
+  class="container w-25 hidden-text"
+  id="tableContainer"
+>
+  <div
+    class="container mt-3"
+  >
+    <div
+      class="input-group"
+    >
+      <table
+        class="table table-sm justify-content-center d-flex"
+        id="csv-format"
+      >
+        <tr>
+          <td>
+            MSH;2;^~\&;
+          </td>
+        </tr>
+        <tr>
+          <td>
+            PID;24.1.1;Y;
+          </td>
+        </tr>
+        <tr>
+          <td>
+            ENV;1;P03;
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById("copy-button").addEventListener("click", function() {
+      var hl7MessageTextArea = document.getElementById("hl7-message");
+      hl7MessageTextArea.select();
+      document.execCommand("copy");
+
+  });
+    });
+
+    const toggleButton = document.getElementById('toggleButton');
+    const tableContainer = document.getElementById('tableContainer');
+
+    toggleButton.addEventListener('click', function() {
+      tableContainer.classList.toggle('hidden-text');
+    });
+
+
+</script>
+
+{% endblock content %}

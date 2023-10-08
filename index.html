@@ -1,0 +1,28 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Site Selector</title>
+</head>
+<body>
+    <h1>Select a Site:</h1>
+    <button id="site1Button">Site 1</button>
+    <button id="site2Button">Site 2</button>
+
+    <script>
+    document.getElementById("site1Button").addEventListener("click", function () {
+        window.open("http://localhost:8000/", "_blank");
+        window.open("cd /home/vboxuser/Downloads/Django-registration-and-login-system-master && python manage.py runserver 8000", "_blank");
+    });
+
+    document.getElementById("site2Button").addEventListener("click", function () {
+        window.open("http://localhost:8001/", "_blank");
+        window.open("cd /home/vboxuser/Downloads/health-level-seven-main && python manage.py runserver 8001", "_blank");
+    });
+</script>
+
+</body>
+</html>
+
+
+

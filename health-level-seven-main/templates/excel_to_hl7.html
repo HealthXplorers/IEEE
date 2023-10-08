@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div
+  class="custom-center"
+>
+  <h1
+    class="custom-text-color"
+  >
+    Excel File Upload
+  </h1>
+  {% if messages %}
+  <ul
+    class="messages"
+  >
+    {% for message in messages %}
+    <li>
+      {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  <div
+    class="container"
+  >
+    <div
+      class="justify-content-center d-flex"
+    >
+      <div
+        class="col-md-6"
+      >
+        <form
+          class="text-center"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          {% csrf_token %}
+          <label
+            class="h5"
+            for="excel_file"
+          >
+            Select a Excel file:
+          </label>
+          <div
+            class="input-group mb-3 justify-content-center d-flex"
+          >
+            <input
+              type="file"
+              class="btn btn-outline-secondary"
+              id="excel_file"
+              name="excel_file"
+              accept=".xlsx, .xls"
+            >
+          </div>
+          <button
+              class="btn custom-button text-white"
+              type="submit"
+            >
+              Upload
+            </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="text-center"
+>
+  {{ error_message }}
+</div>
+
+<div
+  class="custom-center m-3"
+>
+  <h4>
+    Required format:
+  </h4>
+</div>
+<div
+  class="justify-content-center d-flex"
+>
+  <button
+    class="btn custom-button text-white btn-sm mb-3"
+    id="toggleButton"
+  >
+    Show format
+  </button>
+</div>
+
+<div
+  class="container w-25 hidden"
+  id="tableContainer"
+>
+  <table
+    class="table table-bordered table-sm bg-hl7-primary_blue text-hl7-white"
+  >
+    <thead>
+    <tr>
+      <th>Segment</th>
+      <th>Index</th>
+      <th>Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>MSH</td>
+      <td>1</td>
+      <td>^~\&</td>
+    </tr>
+    <tr>
+      <td>PID</td>
+      <td>24.1.1</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>EVN</td>
+      <td>1</td>
+      <td>P03</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+{% if hl7_message %}
+<div
+  class="container mt-3"
+>
+  <div
+    class="input-group"
+  >
+    <textarea class="form-control"
+              id="hl7-message"
+              rows="4"
+    >{{ hl7_message }}</textarea>
+    <a
+      href="#"
+      id="copy-button"
+    >
+      <img
+        class="copy-button-icon m-2"
+        src="{% static 'copy-solid.png' %}"
+        alt="Copy"
+      >
+    </a>
+  </div>
+</div>
+
+{% endif %}
+
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById("copy-button").addEventListener("click", function() {
+    var hl7MessageTextArea = document.getElementById("hl7-message");
+    hl7MessageTextArea.select();
+    document.execCommand("copy");
+  });
+
+    });
+
+  const toggleButton = document.getElementById('toggleButton');
+  const tableContainer = document.getElementById('tableContainer');
+
+  toggleButton.addEventListener('click', function() {
+    tableContainer.classList.toggle('hidden');
+  });
+
+
+
+
+</script>
+
+{% endblock content %}
