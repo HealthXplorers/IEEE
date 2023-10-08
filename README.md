@@ -3,6 +3,7 @@
 Download the ZIP file and extract it
 
 Open two terminals and run the following:
+
 Terminal 1
 
 cd Downloads/IEEE-main/management
