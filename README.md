@@ -21,3 +21,5 @@ python3 manage.py createsuperuser
 python3 manage.py runserver 8001
 
 After this, open the index.html file in your browser.
+
+Video: [https://youtu.be/tIoRloX_kOM]
