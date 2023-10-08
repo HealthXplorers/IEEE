@@ -1,28 +1,36 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Site Selector</title>
+    <title>HealthXplorers</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <h1>Select a Site:</h1>
-    <button id="site1Button">Site 1</button>
-    <button id="site2Button">Site 2</button>
+    <header>
+        <img class="logo" src="logo.png" alt="HealthXplorers Logo">
+        <h1>HealthXplorers</h1>
+    </header>
+
+    <div class="container">
+        <h2>Select a Site:</h2>
+        <button id="site1Button">Data System</button>
+        <button id="site2Button">Health Level 7</button>
+    </div>
 
     <script>
     document.getElementById("site1Button").addEventListener("click", function () {
-        window.open("http://localhost:8000/", "_blank");
-        window.open("cd /home/vboxuser/Downloads/Django-registration-and-login-system-master && python manage.py runserver 8000", "_blank");
+        
+        window.open("http://127.0.0.1:8000/", "_blank");
     });
 
     document.getElementById("site2Button").addEventListener("click", function () {
-        window.open("http://localhost:8001/", "_blank");
-        window.open("cd /home/vboxuser/Downloads/health-level-seven-main && python manage.py runserver 8001", "_blank");
+        
+        window.open("http://127.0.0.1:8001/", "_blank");
     });
 </script>
 
 </body>
 </html>
+
 
 
 

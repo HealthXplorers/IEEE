@@ -1,0 +1,54 @@
+/* Reset default margin and padding on the body element */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Specify a fallback font family */
+}
+
+/* Apply a background color to the entire page */
+body {
+    background-color: #f5f5f5; /* Light gray background color */
+}
+
+/* Style for the header containing the logo and company name */
+header {
+    text-align: center; /* Center-align the header content */
+    padding: 20px 0; /* Add vertical padding to the header */
+}
+
+/* Style for the company name */
+h1 {
+    font-size: 28px; /* Larger font size for the company name */
+    color: #333; /* Dark gray text color */
+    margin-bottom: 10px; /* Add space below the company name */
+}
+
+/* Style for the logo image */
+.logo {
+    max-width: 150px; /* Limit the logo width */
+    height: auto; /* Maintain the image's aspect ratio */
+}
+
+/* Style for the container with site selection */
+.container {
+    text-align: center; /* Center-align the content within the container */
+    margin: 20px auto; /* Center the container and add space around it */
+}
+
+/* Style for the buttons */
+button {
+    background-color: #007BFF; /* Button background color */
+    color: #fff; /* Button text color */
+    padding: 10px 20px; /* Button padding */
+    border: none; /* Remove button border */
+    border-radius: 5px; /* Add rounded corners to the button */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    margin: 10px; /* Add space around the buttons */
+    font-size: 18px; /* Button text font size */
+}
+
+/* Style for the buttons on hover */
+button:hover {
+    background-color: #0056b3; /* Button background color on hover */
+}
+
