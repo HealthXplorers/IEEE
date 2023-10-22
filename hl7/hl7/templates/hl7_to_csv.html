@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div
+  class="custom-center"
+>
+  <h1
+    class="custom-text-color"
+  >
+    HL7 to CSV
+  </h1>
+  <h3>
+    Paste HL7 message here
+  </h3>
+  <form
+    method="post"
+    action="{% url 'hl7-to-csv' %}"
+  >
+    {% csrf_token %}
+    <div
+      class="d-flex justify-content-center"
+    >
+      <textarea
+        class="form-control text-input mb-3"
+        id="text_input"
+        name="text_input"
+        rows="4"
+        cols="50"
+      ></textarea>
+    </div>
+    <div
+    >
+      {{ error_message }}
+    </div>
+    <input
+      class="btn custom-button text-white"
+      type="submit"
+      value="Convert"
+    >
+  </form>
+  {% if csv_data %}
+  <div
+    class="container mt-3"
+  >
+    <div
+      class="input-group"
+    >
+      <textarea
+        class="form-control"
+        id="hl7-message"
+        rows="4"
+      >{{ csv_data }}</textarea>
+      <a
+        href="#"
+        id="copy-button"
+      >
+        <img class="copy-button-icon m-2"
+             src="{% static 'copy-solid.png' %}"
+             alt="Copy"
+        >
+      </a>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+
+<script>
+    document.getElementById("copy-button").addEventListener("click", function() {
+        var hl7MessageTextArea = document.getElementById("hl7-message");
+        hl7MessageTextArea.select();
+        document.execCommand("copy");
+
+    });
+
+
+</script>
+
+{% endblock content %}

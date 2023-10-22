@@ -1,0 +1,8 @@
+---
+version: "3"
+services:
+  health-level-seven:
+    build: .
+    restart: always
+    ports:
+      - 8001:8001
