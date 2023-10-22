@@ -1,54 +1,82 @@
-/* Reset default margin and padding on the body element */
+/* General styles */
 body {
+    font-family: Arial, sans-serif;
+    background-color: #e0ffe0;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif; /* Specify a fallback font family */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
-/* Apply a background color to the entire page */
-body {
-    background-color: #f5f5f5; /* Light gray background color */
-}
-
-/* Style for the header containing the logo and company name */
-header {
-    text-align: center; /* Center-align the header content */
-    padding: 20px 0; /* Add vertical padding to the header */
-}
-
-/* Style for the company name */
-h1 {
-    font-size: 28px; /* Larger font size for the company name */
-    color: #333; /* Dark gray text color */
-    margin-bottom: 10px; /* Add space below the company name */
-}
-
-/* Style for the logo image */
-.logo {
-    max-width: 150px; /* Limit the logo width */
-    height: auto; /* Maintain the image's aspect ratio */
-}
-
-/* Style for the container with site selection */
 .container {
-    text-align: center; /* Center-align the content within the container */
-    margin: 20px auto; /* Center the container and add space around it */
+    text-align: center;
 }
 
-/* Style for the buttons */
-button {
-    background-color: #007BFF; /* Button background color */
-    color: #fff; /* Button text color */
-    padding: 10px 20px; /* Button padding */
-    border: none; /* Remove button border */
-    border-radius: 5px; /* Add rounded corners to the button */
-    cursor: pointer; /* Add a pointer cursor on hover */
-    margin: 10px; /* Add space around the buttons */
-    font-size: 18px; /* Button text font size */
+h1 {
+    color: #333;
 }
 
-/* Style for the buttons on hover */
-button:hover {
-    background-color: #0056b3; /* Button background color on hover */
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+/* Form styles */
+#medical-details-form {
+    margin: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="text"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+#add-medicine {
+    background-color: #0074b8;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#add-medicine:hover {
+    background-color: #00548a;
+}
+
+/* Table styles */
+#medical-details-table {
+    margin: 20px;
+}
+
+#medical-details-table th {
+    background-color: #0074b8;
+    color: #fff;
+}
+
+#medical-details-table tr:nth-child(even) {
+    background-color: #e5e5e5;
+}
+
+#confirmation-message {
+    color: #0074b8;
+    margin: 10px;
+}

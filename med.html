@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Medical Details</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+<body>
+	<!DOCTYPE html>
+<html>
+<head>
+    <title>User Medical Details</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img class="logo" src="logo.png" alt="HealthXplorers Logo">
+            <h1>HealthXplorers</h1>
+        </header>
+
+    <h1>Medical Details Entry</h1>
+    <form id="medical-details-form">
+        <label for="date">Date of Consultation:</label>
+        <input type="date" id="date" name="date" required><br><br>
+        
+        <label for="doctorName">Doctor Name:</label>
+        <input type="text" id="doctorName" name="doctorName" required><br><br>
+
+        <label for="doctorID">Doctor ID:</label>
+        <input type="text" id="doctorID" name="doctorID" required><br><br>
+
+        <div id="medicines-container">
+            <div class="medicine-entry">
+                <label for="medicine1">Medicine 1:</label>
+                <input type="text" id="medicine1" name="medicines[]" required>
+
+                <label for="dosage1">Dosage:</label>
+                <input type="text" id="dosage1" name="dosages[]"><br><br>
+            </div>
+        </div>
+
+        <button type="button" id="add-medicine">Add Medicine</button>
+
+        <label for="reason">Reason/Disease Identified:</label>
+        <input type="text" id="reason" name="reason" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="confirmation-message"></div>
+
+    <h2>Medical Details Table</h2>
+<button id="sort-button">Sort by Date</button>
+    <table id="medical-details-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Doctor Name</th>
+                <th>Doctor ID</th>
+                <th>Medicine and Dosage</th>
+                <th>Reason/Disease</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <!-- Table data will be displayed here -->
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
